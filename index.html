@@ -957,7 +957,6 @@ videos.slice(0, 3).forEach((v, n) => {
   th.onclick = () => openVideo(v);
   c.appendChild(th);
   c.insertAdjacentHTML('beforeend', `<h4 title="${esc(v.title)}">${esc(v.name)}</h4>
-    <div class="tools">${(v.tools.length ? v.tools : ['ORIGINAL']).map(t => `<span>${esc(t)}</span>`).join('')}</div>
     <div class="meta-row"><span>▶ <b>${fmt(v.view)}</b></span><span>♥ <b>${fmt(v.like)}</b></span><span>⏱ <b>${dur(v.dur)}</b></span><span>${v.date}</span></div>`);
   c.style.transitionDelay = n * 80 + 'ms';
   vgrid.appendChild(c); rv.observe(c);
@@ -996,7 +995,6 @@ const cvgrid = $('#cvgrid');
   const name = v.title.replace(/^\s*[\[【][^\]】]+[\]】]\s*/, '');
   c.insertAdjacentHTML('beforeend', `<h4 title="${esc(v.title)}">${esc(name)}</h4>
     <dl class="cv-kv"><dt>VOCAL</dt><dd>${esc(v.role)}</dd><dt>SONG</dt><dd>${esc(v.song)}</dd><dt>STACK</dt><dd>${v.tech.map(t => `<span>${esc(t)}</span>`).join('')}</dd></dl>
-    ${v.note ? `<p class="cv-note">${esc(v.note)}</p>` : ''}
     <div class="meta-row"><span>▶ <b>${fmt(v.view)}</b></span><span>♥ <b>${fmt(v.like)}</b></span><span>⏱ <b>${dur(v.dur)}</b></span><span>${v.date}</span></div>`);
   c.style.transitionDelay = n * 80 + 'ms';
   cvgrid.appendChild(c); rv.observe(c);
